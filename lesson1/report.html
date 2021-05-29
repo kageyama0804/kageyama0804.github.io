@@ -40,16 +40,22 @@
     cube.position.set(0, 0.5, -0.7);
 
     //目(球)
-    var eye1 = new THREE.SphereGeometry(0.1, 32, 32);
-    var eye2 = new THREE. MeshPhongMaterial({ color: 0x7FFFD4, wireframe: true });
+    var eyegeometry = new THREE.SphereGeometry(0.1, 32, 32);
+    var eyematerial = new THREE. MeshPhongMaterial({ color: 0x7FFFD4 });
 
     //左目
-    var eyel = new THREE.Mesh(eye1, eye2);
+    var eyel = new THREE.Mesh(eyegeometry, eyematerial);
     eyel.position.set(-0.3, 2, 1.35);
 
     //右目
-    var eyer = new THREE.Mesh(eye1, eye2);
+    var eyer = new THREE.Mesh(eyegeometry, eyematerial);
     eyer.position.set(0.3, 2, 1.35);
+
+    //鼻
+    var nosegeometry = new THREE.TorusGeometry(0.01, 0, 24, 24);
+    var nosematerial = new THREE. MeshPhongMaterial({ color: 0x7FFFD4, wireframe: true });
+    var nose = new THREE.Mesh(nosegeometry, nosematerial);
+    nose.position.set(0, 1.7, 1.5);
 
     // 平面を作成
     var planeGeometry = new THREE.PlaneGeometry(5, 5, 5, 5);
@@ -69,6 +75,7 @@
     cat.add(cube);
     cat.add(eyel);
     cat.add(eyer);
+    cat.add(nose);
     cat.position.set(0, 1, 0);
 
     //全体のオブジェクト
@@ -96,7 +103,7 @@
     var update = function () {
       requestAnimationFrame(update);
 
-      //all.rotation.y += 0.005;
+      all.rotation.y += 0.005;
       renderer.render(scene, camera);
     };
 
