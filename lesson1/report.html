@@ -28,16 +28,28 @@
     camera.position.set(0, 2, 3);
 
     //頭（球）
-    var sphereGeometry = new THREE.SphereGeometry(0.65, 32, 32);
-    var sphereMaterial = new THREE. MeshPhongMaterial({ color: 0xff0000, wireframe: true });
+    var sphereGeometry = new THREE.SphereGeometry(1, 32, 32);
+    var sphereMaterial = new THREE. MeshPhongMaterial({ color: 0xff0000 });
     var sphere1 = new THREE.Mesh(sphereGeometry, sphereMaterial);
-    sphere1.position.set(0, 1, 0);
+    sphere1.position.set(0, 1.7, 0.5);
 
     //長方形
-    var geometry = new THREE.BoxGeometry(1, 0.8, 2);
+    var geometry = new THREE.BoxGeometry(1.2, 0.8, 2.8);
     var material = new THREE.MeshBasicMaterial({ color: 0xFF0000 });
     var cube = new THREE.Mesh(geometry, material);
-    cube.position.set(0, 0, -0.8);
+    cube.position.set(0, 0.5, -0.7);
+
+    //目(球)
+    var eye1 = new THREE.SphereGeometry(0.1, 32, 32);
+    var eye2 = new THREE. MeshPhongMaterial({ color: 0x7FFFD4, wireframe: true });
+
+    //左目
+    var eyel = new THREE.Mesh(eye1, eye2);
+    eyel.position.set(-0.3, 2, 1.35);
+
+    //右目
+    var eyer = new THREE.Mesh(eye1, eye2);
+    eyer.position.set(0.3, 2, 1.35);
 
     // 平面を作成
     var planeGeometry = new THREE.PlaneGeometry(5, 5, 5, 5);
@@ -55,6 +67,8 @@
     cat.add(axis);
     cat.add(sphere1);
     cat.add(cube);
+    cat.add(eyel);
+    cat.add(eyer);
     cat.position.set(0, 1, 0);
 
     //全体のオブジェクト
