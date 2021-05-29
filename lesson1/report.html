@@ -25,21 +25,44 @@
 
     // カメラを作成
     var camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
-    camera.position.set(-1.8, 0, 0);
+    camera.position.set(0, 2, 3);
 
-    //球
+    //頭（球）
     var sphereGeometry = new THREE.SphereGeometry(0.65, 32, 32);
     var sphereMaterial = new THREE. MeshPhongMaterial({ color: 0xff0000, wireframe: true });
     var sphere1 = new THREE.Mesh(sphereGeometry, sphereMaterial);
-    sphere1.position.set(-1.8, 0.7, -5);
-    scene.add(sphere1);
+    sphere1.position.set(0, 1, 0);
 
     //長方形
-    var geometry = new THREE.BoxGeometry(2, 0.8, 1);
+    var geometry = new THREE.BoxGeometry(1, 0.8, 2);
     var material = new THREE.MeshBasicMaterial({ color: 0xFF0000 });
     var cube = new THREE.Mesh(geometry, material);
-    cube.position.set(-1.2, -0.15, -5);
-    scene.add(cube);
+    cube.position.set(0, 0, -0.8);
+
+    // 平面を作成
+    var planeGeometry = new THREE.PlaneGeometry(5, 5, 5, 5);
+    var planeMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    var plane = new THREE.Mesh(planeGeometry, planeMaterial);
+    plane.rotation.set(-Math.PI/2, 0, 0);
+    plane.position.set(0, 0, 0);
+
+    //XYZ軸の表示（長さ）
+    var axis = new THREE.AxisHelper(5);
+    axis.position.set(0, -0.8, 0);
+
+    //グループ化
+    const cat = new THREE.Group();
+    cat.add(axis);
+    cat.add(sphere1);
+    cat.add(cube);
+    cat.position.set(0, 1, 0);
+
+    //全体のオブジェクト
+   const all = new THREE.Group();
+    all.add(plane);//平面を追加
+    all.add(cat); // ペンギンを追加
+    all.position.set(0, 0, -5);//全体グループの原点の位置
+   scene.add(all);
 
     // 平行光源1
     var directionalLight1 = new THREE.DirectionalLight(0xffffff);
@@ -59,7 +82,7 @@
     var update = function () {
       requestAnimationFrame(update);
 
-      //cube.rotation.y += 0.01;
+      //all.rotation.y += 0.005;
       renderer.render(scene, camera);
     };
 
