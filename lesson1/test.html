@@ -29,19 +29,19 @@
 
     //頭（球）
     var sphereGeometry = new THREE.SphereGeometry(1, 32, 32);
-    var sphereMaterial = new THREE. MeshPhongMaterial({ color: 0xff0000 });
+    var sphereMaterial = new THREE. MeshPhongMaterial({ color: 0xff0000, wireframe: true });
     var sphere1 = new THREE.Mesh(sphereGeometry, sphereMaterial);
     sphere1.position.set(0, 1.7, 0.5);
 
     //長方形
     var geometry = new THREE.BoxGeometry(1.2, 0.8, 2.8);
-    var material = new THREE.MeshBasicMaterial({ color: 0xFF0000 });
+    var material = new THREE.MeshBasicMaterial({ color: 0xFF0000, wireframe: true });
     var cube = new THREE.Mesh(geometry, material);
     cube.position.set(0, 0.5, -0.7);
 
     //目(球)
     var eyegeometry = new THREE.SphereGeometry(0.1, 32, 32);
-    var eyematerial = new THREE. MeshPhongMaterial({ color: 0x7FFFD4 });
+    var eyematerial = new THREE. MeshPhongMaterial({ color: 0x7FFFD4, wireframe: true });
 
     //左目
     var eyel = new THREE.Mesh(eyegeometry, eyematerial);
@@ -59,7 +59,7 @@
 
     // 平面を作成
     var planeGeometry = new THREE.PlaneGeometry(5, 5, 5, 5);
-    var planeMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    var planeMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true });
     var plane = new THREE.Mesh(planeGeometry, planeMaterial);
     plane.rotation.set(-Math.PI/2, 0, 0);
     plane.position.set(0, 0, 0);
@@ -114,4 +114,3 @@
 </script>
 </body>
 </html>
-
