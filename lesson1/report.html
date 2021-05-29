@@ -25,13 +25,21 @@
 
     // カメラを作成
     var camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
+    camera.position.set(-1.8, 0, 0);
 
     //球
-    var sphereGeometry = new THREE.SphereGeometry(0.5, 32, 32);
+    var sphereGeometry = new THREE.SphereGeometry(0.65, 32, 32);
     var sphereMaterial = new THREE. MeshPhongMaterial({ color: 0xff0000, wireframe: true });
     var sphere1 = new THREE.Mesh(sphereGeometry, sphereMaterial);
     sphere1.position.set(-1.8, 0.7, -5);
     scene.add(sphere1);
+
+    //長方形
+    var geometry = new THREE.BoxGeometry(2, 0.8, 1);
+    var material = new THREE.MeshBasicMaterial({ color: 0xFF0000 });
+    var cube = new THREE.Mesh(geometry, material);
+    cube.position.set(-1.2, -0.15, -5);
+    scene.add(cube);
 
     // 平行光源1
     var directionalLight1 = new THREE.DirectionalLight(0xffffff);
@@ -51,6 +59,7 @@
     var update = function () {
       requestAnimationFrame(update);
 
+      //cube.rotation.y += 0.01;
       renderer.render(scene, camera);
     };
 
