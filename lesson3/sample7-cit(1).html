@@ -16,20 +16,20 @@
 
     var width = 800,
         height = 600;
-  
+
     // レンダラーを作成
     var renderer = new THREE.WebGLRenderer();
     renderer.setSize(width, height);
     document.body.appendChild(renderer.domElement);
-  
+
     // シーンを作成
     var scene = new THREE.Scene();
-  
+
     // カメラを作成
   var camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
 
 // テクスチャー読み込み
-var textureLoader = new THREE.TextureLoader();  
+var textureLoader = new THREE.TextureLoader();
 var texture = textureLoader.load("cit.png");
 var mat = new THREE.MeshPhongMaterial();
 mat.map = texture;
