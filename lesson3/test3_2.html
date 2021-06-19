@@ -30,14 +30,14 @@
 
       // テクスチャー読み込み
       var textureLoader = new THREE.TextureLoader();
-      var texture = textureLoader.load("neko1.jpg");
+      var texture = textureLoader.load("test3/neko1.jpg");
       var mat = new THREE.MeshPhongMaterial();
       mat.map = texture;
 
       // バンプマップ読み込み
       var bump = textureLoader.load("test3/neko1_bump.png");
-      mat.normalMap = normalTexture;
-      mat.normalScale = new THREE.Vector2(1, -1);
+      mat.bumpMap = bump;
+      mat.bumpscale = 0.2;
 
       // 箱を作成
       var geometry = new THREE.BoxGeometry(1, 1, 1);
