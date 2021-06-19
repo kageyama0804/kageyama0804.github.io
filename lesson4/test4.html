@@ -8,6 +8,7 @@
   <!-- <script src="./three.js"></script> -->
   <!-- three.jsを読み込む(CDN) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/99/three.min.js"></script>
+<script src="OrbitControls.js"></script>
 
 </head>
 <body>
@@ -26,43 +27,90 @@
       var scene = new THREE.Scene();
 
       // カメラを作成(画角、縦横比、カメラからの距離前、後）
-      var camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
+      var camera = new THREE.PerspectiveCamera(45, width / height);
 
       // カメラの座標
-      camera.position.set(0, 2, 5);
-      camera.lookAt(new THREE.Vector3(0, 1, 0));
+      camera.position.set(0, 30, 45);
+
+      // カメラコントローラーを作成
+      const controls = new THREE.OrbitControls(camera,document.body);
 
       // 平面を作成
-      var planeGeometry = new THREE.PlaneGeometry(5, 5, 5, 5);
+      var planeGeometry = new THREE.PlaneGeometry(12, 12, 12, 12);
       var planeMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
       var plane = new THREE.Mesh(planeGeometry,planeMaterial);
       plane.rotation.set(-Math.PI/2, 0, 0);
-      plane.position.set(0, 0, 0);
+      plane.position.set(0, -10, 0);
 
       //XYZ軸の表示（長さ）
-      var axis = new THREE.AxisHelper(5);
-      axis.position.set(0, -0.8, 0);
+      var axis = new THREE.AxisHelper(30);
+      axis.position.set(0, -8, 0);
 
       //酒を作成
-      //角柱〜円柱
-      var sakeGeometry = new THREE.CylinderGeometry(0.3, 0.5, 10, 32);
+      //下(下)
+      var sakeunder1Geometry = new THREE.CylinderGeometry(4, 3.5, 3.5, 32);
       //上の底面の半径、下の底面の半径、高さ、何角柱か
-      var sakeMaterial = new THREE.MeshPhongMaterial({ color: 0x0000ff });
-      var sake = new THREE.Mesh(sakeGeometry, sakeMaterial);
-      sake.position.set(0, 0, 0);
-      scene.add(sake);
+      var sakeunder1Material = new THREE.MeshPhongMaterial({ color: 0x0000ff });
+      var sakeunder1 = new THREE.Mesh(sakeunder1Geometry, sakeunder1Material);
+      sakeunder1.position.set(0, -6.25, 0);
+      scene.add(sakeunder1);
+
+      //下(上)
+      var sakeunder2Geometry = new THREE.CylinderGeometry(4, 4, 9, 32);
+      //上の底面の半径、下の底面の半径、高さ、何角柱か
+      var sakeunder2Material = new THREE.MeshPhongMaterial({ color: 0x0000ff });
+      var sakeunder2 = new THREE.Mesh(sakeunder2Geometry, sakeunder2Material);
+      sakeunder2.position.set(0, 0, 0);
+      scene.add(sakeunder2);
+
+      //中(下)
+      var sakecenter1Geometry = new THREE.CylinderGeometry(2.6, 4, 4.5, 32);
+      //上の底面の半径、下の底面の半径、高さ、何角柱か
+      var sakecenter1Material = new THREE.MeshPhongMaterial({ color: 0x0000ff });
+      var sakecenter1 = new THREE.Mesh(sakecenter1Geometry, sakecenter1Material);
+      sakecenter1.position.set(0, 6.75, 0);
+      scene.add(sakecenter1);
+
+      //中(上)
+      var sakecenter2Geometry = new THREE.CylinderGeometry(1.5, 2.6, 4, 32);
+      //上の底面の半径、下の底面の半径、高さ、何角柱か
+      var sakecenter2Material = new THREE.MeshPhongMaterial({ color: 0x0000ff });
+      var sakecenter2 = new THREE.Mesh(sakecenter2Geometry, sakecenter2Material);
+      sakecenter2.position.set(0, 11, 0);
+      scene.add(sakecenter2);
+
+      //上(下)
+      var saketop1Geometry = new THREE.CylinderGeometry(1.5, 1.5, 3, 32);
+      //上の底面の半径、下の底面の半径、高さ、何角柱か
+      var saketop1Material = new THREE.MeshPhongMaterial({ color: 0x0000ff });
+      var saketop1 = new THREE.Mesh(saketop1Geometry, saketop1Material);
+      saketop1.position.set(0, 14.5, 0);
+      scene.add(saketop1);
+
+      //上(上：キャップ)
+      var saketop2Geometry = new THREE.CylinderGeometry(1.5, 1.5, 3, 32);
+      //上の底面の半径、下の底面の半径、高さ、何角柱か
+      var saketop2Material = new THREE.MeshPhongMaterial({ color: 0x0000ff });
+      var saketop2 = new THREE.Mesh(saketop2Geometry, saketop2Material);
+      saketop2.position.set(0, 25, 0);//17.5
+      scene.add(saketop2);
 
       //酒のオブジェクト
-      const pengin = new THREE.Group();
-      pengin.add(axis);
-      pengin.add(sake); //体を追加
-      pengin.position.set(0, 1, 0);//酒グループの原点の位置
+      const sake = new THREE.Group();
+      sake.add(axis);
+      sake.add(sakeunder1); //下(下)を追加
+      sake.add(sakeunder2); //下(上)を追加
+      sake.add(sakecenter1); //中(下)を追加
+      sake.add(sakecenter2); //中(上)を追加
+      sake.add(saketop1); //上(下)を追加
+      sake.add(saketop2); //上(下)を追加
+      sake.position.set(0, 1, 0);//酒グループの原点の位置
 
       //全体のオブジェクト
       const all = new THREE.Group();
       all.add(plane);//平面を追加
-      all.add(pengin); // 酒を追加
-      all.position.set(0,0,-5);//全体グループの原点の位置
+      all.add(sake); // 酒を追加
+      all.position.set(0, 0, 0);//全体グループの原点の位置
       scene.add(all);
 
       // 平行光源1
