@@ -44,16 +44,18 @@
       axis.position.set(0, -0.8, 0);
 
       //酒を作成
-      var body_g = new THREE.SphereGeometry(0.6, 32, 32);
-      var material_r = new THREE.MeshPhongMaterial({ color: 0xff0000 });
-      var body = new THREE.Mesh(body_g, material_r);
-      body.scale.y = 1.5;
-      body.position.set(0, 0, 0);
+      //角柱〜円柱
+      var sakeGeometry = new THREE.CylinderGeometry(0.3, 0.5, 1, 32);
+      //上の底面の半径、下の底面の半径、高さ、何角柱か
+      var sakeMaterial = new THREE.MeshPhongMaterial({ color: 0x0000ff });
+      var sake = new THREE.Mesh(sakeGeometry, sakeMaterial);
+      sake.position.set(0, 0, 0);
+      scene.add(sake);
 
       //酒のオブジェクト
       const pengin = new THREE.Group();
       pengin.add(axis);
-      pengin.add(body); //体を追加
+      pengin.add(sake); //体を追加
       pengin.position.set(0, 1, 0);//酒グループの原点の位置
 
       //全体のオブジェクト
