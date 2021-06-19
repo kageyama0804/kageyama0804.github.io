@@ -36,8 +36,8 @@
 
       // バンプマップ読み込み
       var bump = textureLoader.load("test3/neko1_bump.png");
-      mat.bumpMap = bump;
-      mat.bumpscale = 0.2;
+      mat.normalMap = normalTexture;
+      mat.normalScale = new THREE.Vector2(1, -1);
 
       // 箱を作成
       var geometry = new THREE.BoxGeometry(1, 1, 1);
