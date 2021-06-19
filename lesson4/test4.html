@@ -49,7 +49,7 @@
 
       //酒を作成
       //下(下)
-      var sakeunder1Geometry = new THREE.CylinderGeometry(4, 3.5, 3.5, 32);
+      var sakeunder1Geometry = new THREE.CylinderGeometry(4, 3.5, 3.5, 16);
       //上の底面の半径、下の底面の半径、高さ、何角柱か
       var sakeunder1Material = new THREE.MeshPhongMaterial({ color: 0xffa500, opacity: 0.8,  transparent: true });
       var sakeunder1 = new THREE.Mesh(sakeunder1Geometry, sakeunder1Material);
@@ -59,7 +59,7 @@
       //下(上)
       var sakeunder2Geometry = new THREE.CylinderGeometry(4, 4, 9, 32);
       //上の底面の半径、下の底面の半径、高さ、何角柱か
-      var sakeunder2Material = new THREE.MeshPhongMaterial({ color: 0xffa500, opacity: 0.8,  transparent: true });
+      var sakeunder2Material = new THREE.MeshPhongMaterial({ color: 0xfff8c00, opacity: 0.8,  transparent: true });
       var sakeunder2 = new THREE.Mesh(sakeunder2Geometry, sakeunder2Material);
       sakeunder2.position.set(0, 0, 0);
       scene.add(sakeunder2);
@@ -67,7 +67,7 @@
       //中(下)
       var sakecenter1Geometry = new THREE.CylinderGeometry(2.6, 4, 4.5, 32);
       //上の底面の半径、下の底面の半径、高さ、何角柱か
-      var sakecenter1Material = new THREE.MeshPhongMaterial({ color: 0xffa500, opacity: 0.8,  transparent: true });
+      var sakecenter1Material = new THREE.MeshPhongMaterial({ color: 0xff8c00, opacity: 0.8,  transparent: true });
       var sakecenter1 = new THREE.Mesh(sakecenter1Geometry, sakecenter1Material);
       sakecenter1.position.set(0, 6.75, 0);
       scene.add(sakecenter1);
@@ -75,7 +75,7 @@
       //中(上)
       var sakecenter2Geometry = new THREE.CylinderGeometry(1.5, 2.6, 4, 32);
       //上の底面の半径、下の底面の半径、高さ、何角柱か
-      var sakecenter2Material = new THREE.MeshPhongMaterial({ color: 0xffa500, opacity: 0.8,  transparent: true });
+      var sakecenter2Material = new THREE.MeshPhongMaterial({ color: 0xffffff, opacity: 0.8,  transparent: true });
       var sakecenter2 = new THREE.Mesh(sakecenter2Geometry, sakecenter2Material);
       sakecenter2.position.set(0, 11, 0);
       scene.add(sakecenter2);
@@ -83,7 +83,7 @@
       //上(下)
       var saketop1Geometry = new THREE.CylinderGeometry(1.5, 1.5, 3, 32);
       //上の底面の半径、下の底面の半径、高さ、何角柱か
-      var saketop1Material = new THREE.MeshPhongMaterial({ color: 0xffa500, opacity: 0.8,  transparent: true });
+      var saketop1Material = new THREE.MeshPhongMaterial({ color: 0xffffff, opacity: 0.8,  transparent: true });
       var saketop1 = new THREE.Mesh(saketop1Geometry, saketop1Material);
       saketop1.position.set(0, 14.5, 0);
       scene.add(saketop1);
