@@ -14,8 +14,7 @@
   <script>
     var init = function() {
 
-      var width = 800,
-      height = 600;
+      var width = 800, height = 600;
 
       // レンダラーを作成
       var renderer = new THREE.WebGLRenderer();
@@ -39,7 +38,7 @@
       //var material = new THREE.MeshPhongMaterial({ color: 0xffffff });
       //var box = new THREE.Mesh(geometry, material);
       var box = new THREE.Mesh(geometry, mat);
-      box.position.z = -5;
+      box.position.z = -3;
       scene.add(box);
 
       // 平行光源
