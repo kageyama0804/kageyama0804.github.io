@@ -28,7 +28,7 @@
 
         // カメラコントローラーを作成
         const controls = new THREE.OrbitControls(camera,document.body);
-  
+
         // 平行光源1
         var directionalLight1 = new THREE.DirectionalLight(0xffffff);
         directionalLight1.position.set(100, 100, 100);
@@ -41,7 +41,7 @@
         scene.add(directionalLight2);
 
         // テクスチャー読み込み
-        var textureLoader = new THREE.TextureLoader();  
+        var textureLoader = new THREE.TextureLoader();
         var texture = textureLoader.load("img/earth.png");
         var mat = new THREE.MeshPhongMaterial();
         mat.map = texture;
