@@ -134,6 +134,13 @@
     // シーンに追加
     scene.add(directionalLight2);
 
+    // 平行光源2
+    var directionalLight3 = new THREE.DirectionalLight(0xffffff);
+    directionalLight3.position.set(1, 1, -2);
+
+    // シーンに追加
+    scene.add(directionalLight3);
+
     // 初回実行
     var update = function() {
       requestAnimationFrame(update);
