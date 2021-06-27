@@ -76,7 +76,7 @@
     mat32.map = texture;
     var normal = textureLoader.load("test4/sake32_bump.png");
     mat32.normalMap = normal;
-    mat32.normalScale = new THREE.Vector2(1, +5);
+    mat32.normalScale = new THREE.Vector2(1, -5);
 
     var sakecenter1Geometry = new THREE.CylinderGeometry(2.6, 4, 4.5, 32);
     //上の底面の半径、下の底面の半径、高さ、何角柱か
@@ -85,6 +85,9 @@
     scene.add(sakecenter1);
 
     //中(上)
+
+
+
     var sakecenter2Geometry = new THREE.CylinderGeometry(1.5, 2.6, 4, 32);
     //上の底面の半径、下の底面の半径、高さ、何角柱か
     var sakecenter2Material = new THREE.MeshStandardMaterial({ color: 0xffffff, opacity: 0.6,  transparent: true });
