@@ -86,6 +86,13 @@
 
     //中(上)
 
+    var textureLoader = new THREE.TextureLoader();
+    var texture = textureLoader.load("test4/sake32.jpg");
+    var mat31 = new THREE.MeshPhongMaterial();
+    mat31.map = texture;
+    var normal = textureLoader.load("test4/sake32_bump.png");
+    mat31.normalMap = normal;
+    mat31.normalScale = new THREE.Vector2(1, 5);
 
 
     var sakecenter2Geometry = new THREE.CylinderGeometry(1.5, 2.6, 4, 32);
