@@ -70,10 +70,18 @@
     scene.add(sakeunder2);
 
     //中(下)
+    var textureLoader = new THREE.TextureLoader();
+    var texture = textureLoader.load("test4/sake32.jpg");
+    var mat2 = new THREE.MeshPhongMaterial();
+    mat3.map = texture;
+    var normal = textureLoader.load("test4/sake32_bump.png");
+    mat3.normalMap = normal;
+    mat3.normalScale = new THREE.Vector2(1, -5);
+
     var sakecenter1Geometry = new THREE.CylinderGeometry(2.6, 4, 4.5, 32);
     //上の底面の半径、下の底面の半径、高さ、何角柱か
     var sakecenter1Material = new THREE.MeshStandardMaterial({ color: 0xff8c00, opacity: 0.6,  transparent: true });
-    var sakecenter1 = new THREE.Mesh(sakecenter1Geometry, sakecenter1Material);
+    var sakecenter1 = new THREE.Mesh(sakecenter1Geometry, mat3);
     sakecenter1.position.set(0, 6.75, 0);
     scene.add(sakecenter1);
 
