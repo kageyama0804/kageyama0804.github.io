@@ -85,7 +85,6 @@
     scene.add(sakecenter1);
 
     //中(上)
-
     var textureLoader = new THREE.TextureLoader();
     var texture = textureLoader.load("test4/sake31.jpg");
     var mat31 = new THREE.MeshPhongMaterial();
@@ -94,7 +93,6 @@
     mat31.normalMap = normal;
     mat31.normalScale = new THREE.Vector2(1, 5);
 
-
     var sakecenter2Geometry = new THREE.CylinderGeometry(1.5, 2.6, 4, 32);
     //上の底面の半径、下の底面の半径、高さ、何角柱か
     var sakecenter2 = new THREE.Mesh(sakecenter2Geometry, mat31);
@@ -102,10 +100,14 @@
     scene.add(sakecenter2);
 
     //上(下)
+    var textureLoader = new THREE.TextureLoader();
+    var texture = textureLoader.load("test4/sake4.jpg");
+    var mat4 = new THREE.MeshPhongMaterial();
+    mat4.map = texture;
+
     var saketop1Geometry = new THREE.CylinderGeometry(1.5, 1.5, 3, 32);
     //上の底面の半径、下の底面の半径、高さ、何角柱か
-    var saketop1Material = new THREE.MeshStandardMaterial({ color: 0xffffff, opacity: 0.6,  transparent: true });
-    var saketop1 = new THREE.Mesh(saketop1Geometry, saketop1Material);
+    var saketop1 = new THREE.Mesh(saketop1Geometry, mat4);
     saketop1.position.set(0, 14.5, 0);
     scene.add(saketop1);
 
