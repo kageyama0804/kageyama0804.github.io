@@ -36,16 +36,6 @@
     // カメラコントローラーを作成
     const controls = new THREE.OrbitControls(camera,document.body);
 
-    // 平面を作成
-    var planeGeometry = new THREE.PlaneGeometry(12, 12, 12, 12);
-    var planeMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    var plane = new THREE.Mesh(planeGeometry,planeMaterial);
-    plane.rotation.set(-Math.PI/2, 0, 0);
-    plane.position.set(0, -10, 0);
-
-    //XYZ軸の表示（長さ）
-    var axis = new THREE.AxisHelper(30);
-    axis.position.set(0, -8, 0);
 
     //酒を作成
     //下(下)
@@ -132,7 +122,6 @@
 
     //酒のオブジェクト
     const sake = new THREE.Group();
-    sake.add(axis);
     sake.add(sakeunder1); //下(下)を追加
     sake.add(sakeunder2); //下(上)を追加
     sake.add(sakecenter1); //中(下)を追加
@@ -143,7 +132,6 @@
 
     //全体のオブジェクト
     const all = new THREE.Group();
-    all.add(plane);//平面を追加
     all.add(sake); // 酒を追加
     all.position.set(0, 0, 0);//全体グループの原点の位置
     scene.add(all);
